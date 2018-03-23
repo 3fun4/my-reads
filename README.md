@@ -4,11 +4,11 @@ This is a [React.js](https://reactjs.org/) app that displays books you are curre
 
 ## Installation
 
-- Install dependencies using npm command line tool
+1. Install dependencies using `npm` command line tool
 ```bash
- npm install
+ $ npm install
 ```
-- Run the application
+2. Run the application
 ```bash
- npm start
+ $ npm start
 ```
