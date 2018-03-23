@@ -5,7 +5,10 @@ This is a [React.js](https://reactjs.org/) app that displays books you are curre
 ## Installation
 
 - Install dependencies using npm command line tool
-``` npm install
-
+```
+ npm install
+```
 - Run the application
-``` npm start
+```
+ npm start
+```
