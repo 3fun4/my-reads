@@ -6,7 +6,7 @@ import BookShelf from './BookShelf'
 class BookSearch extends Component {
 
   static propTypes = {
-    showingBooks: PropTypes.array.isRequired
+    showingBooks: PropTypes.array
   }
 
 	state = {
@@ -45,11 +45,6 @@ class BookSearch extends Component {
     const { onSelectChangerOption } = this.props;
     const { query, showingBooks } = this.state;
 
-    let booksOnShelfCurrentlyReading = showingBooks.filter((book)=>(book.shelf==='currentlyReading') );
-    let booksOnShelfWantToRead = showingBooks.filter((book)=>(book.shelf==='wantToRead') );
-    let booksOnShelfRead = showingBooks.filter((book)=>(book.shelf==='read') );
-    let booksNotOnShelf = showingBooks.filter((book)=>(book.shelf==='none') );
-
 		return (
 			<div className="search-books">
         <div className="search-books-bar">
@@ -63,10 +58,7 @@ class BookSearch extends Component {
         </div>
         <div className="search-books-results">
           <div>
-            <BookShelf key="bookShelfCurrentlyReadingAlready" shelfTitle="Currently Reading" books={booksOnShelfCurrentlyReading} onSelectChangerOption={onSelectChangerOption} />
-            <BookShelf key="bookShelfWantToReadAlready" shelfTitle="Want to Read" books={booksOnShelfWantToRead} onSelectChangerOption={onSelectChangerOption} />
-            <BookShelf key="bookShelfReadAlready" shelfTitle="Read" books={booksOnShelfRead} onSelectChangerOption={onSelectChangerOption} />
-            <BookShelf key="bookShelfSearchResults" shelfTitle="Not on Shelf" books={booksNotOnShelf} onSelectChangerOption={onSelectChangerOption} />
+            <BookShelf key="bookShelfSearchResults" shelfTitle="Search Results" books={showingBooks} onSelectChangerOption={onSelectChangerOption} />
           </div>
         </div>
       </div>

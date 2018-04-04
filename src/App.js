@@ -10,7 +10,7 @@ import './App.css'
 class BooksApp extends React.Component {
 
   static propTypes = {
-    booksOnShelf: PropTypes.array.isRequired,
+    booksOnShelf: PropTypes.array,
     searchResults: PropTypes.array
   }
 
