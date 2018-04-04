@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import * as _ from 'lodash';
 import * as BooksAPI from './BooksAPI'
 import BookShelf from './BookShelf'
 import BookSearch from './BookSearch'
@@ -42,17 +43,10 @@ class BooksApp extends React.Component {
     });
   }
 
-  searchBooks = (query) => {
 
-console.log(query);
-
+  searchBooks =  _.debounce( (query) => {
     if(query){
-console.log('start searching...');
-
       BooksAPI.search(query,this.MAX_RESULTS).then((res)=>{
-console.log('got response...');
-console.log(res);
-
         if(res.error){
           console.log(res.error);
           this.setState({searchResults:[]});
@@ -72,7 +66,7 @@ console.log(res);
       this.setState({searchResults: []});
     }
 
-  }
+  }, 400)
 
 
   render() {
